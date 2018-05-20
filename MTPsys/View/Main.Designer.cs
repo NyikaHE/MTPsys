@@ -41,6 +41,8 @@ namespace MTPsys
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Mix = new System.Windows.Forms.Button();
@@ -59,10 +61,7 @@ namespace MTPsys
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tTESTPRJBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mTP1DataSet = new MTPsys.MTP1DataSet();
-            this.t_TEST_PRJTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PRJTableAdapter();
-            this.PrintDialog = new System.Windows.Forms.PrintDialog();
+            this.TEST_PARENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TEST_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +72,10 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tTESTPRJBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mTP1DataSet = new MTPsys.MTP1DataSet();
+            this.t_TEST_PRJTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PRJTableAdapter();
+            this.PrintDialog = new System.Windows.Forms.PrintDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -233,6 +236,7 @@ namespace MTPsys
             this.Edit.Size = new System.Drawing.Size(36, 37);
             this.Edit.TabIndex = 7;
             this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             this.Edit.MouseEnter += new System.EventHandler(this.Edit_MouseEnter);
             // 
             // Delete
@@ -285,6 +289,7 @@ namespace MTPsys
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TEST_PARENT,
             this.TEST_ID,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
@@ -303,25 +308,16 @@ namespace MTPsys
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(769, 388);
             this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            
+            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
-            // tTESTPRJBindingSource
+            // TEST_PARENT
             // 
-            this.tTESTPRJBindingSource.DataMember = "T_TEST_PRJ";
-            this.tTESTPRJBindingSource.DataSource = this.mTP1DataSet;
-            // 
-            // mTP1DataSet
-            // 
-            this.mTP1DataSet.DataSetName = "MTP1DataSet";
-            this.mTP1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // t_TEST_PRJTableAdapter
-            // 
-            this.t_TEST_PRJTableAdapter.ClearBeforeFill = true;
-            // 
-            // PrintDialog
-            // 
-            this.PrintDialog.UseEXDialog = true;
+            this.TEST_PARENT.DataPropertyName = "TEST_PARENT";
+            this.TEST_PARENT.HeaderText = "丛属关系";
+            this.TEST_PARENT.Name = "TEST_PARENT";
+            this.TEST_PARENT.ReadOnly = true;
+            this.TEST_PARENT.Width = 80;
             // 
             // TEST_ID
             // 
@@ -345,6 +341,7 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn4.HeaderText = "单位名称";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -360,7 +357,7 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn7.HeaderText = "实力数";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 65;
+            this.dataGridViewTextBoxColumn7.Width = 50;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -368,11 +365,14 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn8.HeaderText = "参考人数";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 65;
+            this.dataGridViewTextBoxColumn8.Width = 50;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "QTY_RATE";
+            dataGridViewCellStyle1.Format = "0.0000%";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn9.HeaderText = "参考率";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -384,7 +384,7 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn10.HeaderText = "及格人数";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 65;
+            this.dataGridViewTextBoxColumn10.Width = 50;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -392,15 +392,36 @@ namespace MTPsys
             this.dataGridViewTextBoxColumn11.HeaderText = "不及格人数";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 65;
+            this.dataGridViewTextBoxColumn11.Width = 50;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "TEST_RATE";
+            dataGridViewCellStyle2.Format = "0.0000%";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn12.HeaderText = "及格率";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Width = 65;
+            // 
+            // tTESTPRJBindingSource
+            // 
+            this.tTESTPRJBindingSource.DataMember = "T_TEST_PRJ";
+            this.tTESTPRJBindingSource.DataSource = this.mTP1DataSet;
+            // 
+            // mTP1DataSet
+            // 
+            this.mTP1DataSet.DataSetName = "MTP1DataSet";
+            this.mTP1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // t_TEST_PRJTableAdapter
+            // 
+            this.t_TEST_PRJTableAdapter.ClearBeforeFill = true;
+            // 
+            // PrintDialog
+            // 
+            this.PrintDialog.UseEXDialog = true;
             // 
             // Main
             // 
@@ -426,6 +447,9 @@ namespace MTPsys
             this.Text = "Main";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -479,6 +503,7 @@ namespace MTPsys
         private MTP1DataSetTableAdapters.T_TEST_PRJTableAdapter t_TEST_PRJTableAdapter;
         private BindingSource tTESTPRJBindingSource;
         private PrintDialog PrintDialog;
+        private DataGridViewTextBoxColumn TEST_PARENT;
         private DataGridViewTextBoxColumn TEST_ID;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;

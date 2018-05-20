@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.OleDb;
 using MTPsys.Model;
+using System.Windows.Forms;
 
 namespace MTPsys
 {
@@ -48,19 +49,36 @@ namespace MTPsys
         //插入考核信息
         public Boolean InsertExam(ExamModel ex) {
             OleDbConnection conn = Connect.getConnection();
-            //string sql = "insert into T_TEST_PRJ [TEST_ID[,TEST_DATE[,COMPANY_NAME[,COMLEVEL_NAME[,QTY_TOTAL]]]]]";
-            string sql = "insert into T_TEST_PRJ (TEST_ID,TEST_DATE,COMPANY_NAME,COMLEVEL_NAME,QTY_TOTAL,STANDRAD) values("+ ex.ExamID
-                +",@2,@3,@4,@5,@6)";
+            string sql = "insert into T_TEST_PRJ (TEST_ID,TEST_DATE,COMPANY_NAME,COMLEVEL_NAME,QTY_TOTAL,STANDRAD,TEST_PARENT) values("+ ex.ExamID
+                +",@2,@3,@4,@5,@6,@7)";
             OleDbCommand cmd = new OleDbCommand(sql, conn);  //sql语句 
             cmd.Parameters.AddWithValue("@2", ex.ExamTime);
             cmd.Parameters.AddWithValue("@3", ex.OrganName);
             cmd.Parameters.AddWithValue("@4", ex.OrganLevel);
             cmd.Parameters.AddWithValue("@5", ex.Peoples);
             cmd.Parameters.AddWithValue("@6", ex.Standrad);
+            cmd.Parameters.AddWithValue("@7", ex.Parent);
+
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
             return true;
+        }
+        public int UpdateExam(ExamModel ex)
+        {
+            OleDbConnection conn = Connect.getConnection();
+            //string sql = "insert into T_TEST_PRJ [TEST_ID[,TEST_DATE[,COMPANY_NAME[,COMLEVEL_NAME[,QTY_TOTAL]]]]]";
+            string sql = "update T_TEST_PRJ set TEST_DATE='"+ ex.ExamTime + "',COMPANY_NAME='" +
+               ex.OrganName+ "',COMLEVEL_NAME='" +
+               ex.OrganLevel + "',QTY_TOTAL=" +
+               ex.Peoples + ",STANDRAD=" +
+               ex.Standrad + ",TEST_PARENT='"+ ex.Parent + "' where TEST_ID=@1";//
+            OleDbCommand cmd = new OleDbCommand(sql, conn);  //sql语句 
+            cmd.Parameters.AddWithValue("@1", ex.ExamID);
+            conn.Open();
+            int a=cmd.ExecuteNonQuery();
+            conn.Close();
+            return a;
         }
         //删除考核信息
         public void Delete(string index){
@@ -188,18 +206,25 @@ namespace MTPsys
         }
         //将个人单项成绩写入数据库，成绩导入功能
         public void WritePersonScore(PersonItems pi,OleDbConnection conn) {
-            string sql = "insert into T_TESTPER_ITEMS(TEST_ID, PERSON_ID, PERSON_NAME, SEX,COMPANY_NAME, LIST_NAME,SUBJECT_ID,SUBJECT,SCORE) values(@1,@2,@3,@4,@6,@7,@8,@9,@10)";
-            OleDbCommand cmd = new OleDbCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@1", pi.Test_id);//TEST_ID
-            cmd.Parameters.AddWithValue("@2", pi.Person_id);//PERSON_ID
-            cmd.Parameters.AddWithValue("@3", pi.Person_name);//PERSON_NAME
-            cmd.Parameters.AddWithValue("@4", pi.Sex);//SEX
-            cmd.Parameters.AddWithValue("@6", pi.Company_name);//COMPANY_NAME
-            cmd.Parameters.AddWithValue("@7", pi.List_name);//HEIGHT
-            cmd.Parameters.AddWithValue("@8", pi.Subject_id);//WEIGHT
-            cmd.Parameters.AddWithValue("@9", pi.Subject_name);//LIST_NAME
-            cmd.Parameters.AddWithValue("@10", pi.Score);//COMPANY_ID
-            cmd.ExecuteNonQuery();
+            try
+            {
+                string sql = "insert into T_TESTPER_ITEMS(TEST_ID, PERSON_ID, PERSON_NAME, SEX,COMPANY_NAME, LIST_NAME,SUBJECT_ID,SUBJECT,SCORE) values(@1,@2,@3,@4,@6,@7,@8,@9,@10)";
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@1", pi.Test_id);//TEST_ID
+                cmd.Parameters.AddWithValue("@2", pi.Person_id);//PERSON_ID
+                cmd.Parameters.AddWithValue("@3", pi.Person_name);//PERSON_NAME
+                cmd.Parameters.AddWithValue("@4", pi.Sex);//SEX
+                cmd.Parameters.AddWithValue("@6", pi.Company_name);//COMPANY_NAME
+                cmd.Parameters.AddWithValue("@7", pi.List_name);//HEIGHT
+                cmd.Parameters.AddWithValue("@8", pi.Subject_id);//WEIGHT
+                cmd.Parameters.AddWithValue("@9", pi.Subject_name);//LIST_NAME
+                cmd.Parameters.AddWithValue("@10", pi.Score);//COMPANY_ID
+                int a = cmd.ExecuteNonQuery();
+            }
+            catch {
+                MessageBox.Show("插入信息有误，请重新插入！！！");
+            }
+            
         }
         //显示关闭数据库
         public void ConnClose(OleDbConnection conn) {

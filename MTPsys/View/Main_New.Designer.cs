@@ -50,6 +50,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tTESTPRJBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mTP1DataSet = new MTPsys.MTP1DataSet();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -59,6 +63,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -67,13 +72,16 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.tTESTPRJBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.t_TEST_PRJTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PRJTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.fKTTESTPRJTCOMPANYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.t_COMPANYTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_COMPANYTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,9 +90,11 @@
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tTESTPRJBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mTP1DataSet)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tTESTPRJBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKTTESTPRJTCOMPANYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,7 +106,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(792, 43);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -279,7 +288,7 @@
             this.Finish.Name = "Finish";
             this.Finish.Size = new System.Drawing.Size(75, 23);
             this.Finish.TabIndex = 7;
-            this.Finish.Text = "完成";
+            this.Finish.Text = "添加";
             this.Finish.UseVisualStyleBackColor = true;
             this.Finish.Click += new System.EventHandler(this.Finish_Click);
             // 
@@ -297,7 +306,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(3, 66);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -306,6 +314,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.textBox3);
             this.tabPage1.Controls.Add(this.label15);
@@ -321,6 +331,35 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "添加";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.tTESTPRJBindingSource1;
+            this.comboBox2.DisplayMember = "COMPANY_NAME";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(75, 66);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(166, 20);
+            this.comboBox2.TabIndex = 17;
+            // 
+            // tTESTPRJBindingSource1
+            // 
+            this.tTESTPRJBindingSource1.DataMember = "T_TEST_PRJ";
+            this.tTESTPRJBindingSource1.DataSource = this.mTP1DataSet;
+            // 
+            // mTP1DataSet
+            // 
+            this.mTP1DataSet.DataSetName = "MTP1DataSet";
+            this.mTP1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "上级：";
             // 
             // button1
             // 
@@ -344,9 +383,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(16, 164);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 12;
-            this.label15.Text = "实力数";
+            this.label15.Text = "实力数：";
             // 
             // comboBox1
             // 
@@ -373,9 +412,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(3, 135);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 10;
-            this.label14.Text = "单位级别";
+            this.label14.Text = "单位级别：";
             // 
             // textBox1
             // 
@@ -389,16 +428,16 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(3, 99);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 6;
-            this.label13.Text = "单位名称";
+            this.label13.Text = "单位名称：";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label12.Location = new System.Drawing.Point(83, 46);
+            this.label12.Location = new System.Drawing.Point(84, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 20);
             this.label12.TabIndex = 1;
@@ -406,6 +445,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.comboBox4);
+            this.tabPage4.Controls.Add(this.label7);
             this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Controls.Add(this.textBox7);
             this.tabPage4.Controls.Add(this.label23);
@@ -421,6 +462,15 @@
             this.tabPage4.Text = "修改";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "上级：";
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(156, 207);
@@ -429,6 +479,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "完成";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox7
             // 
@@ -496,28 +547,11 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label20.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label20.Location = new System.Drawing.Point(84, 35);
+            this.label20.Location = new System.Drawing.Point(79, 16);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(89, 20);
             this.label20.TabIndex = 1;
             this.label20.Text = "修改单位";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.treeView1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(257, 235);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "显示";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(16, 13);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(160, 166);
-            this.treeView1.TabIndex = 0;
             // 
             // tTESTPRJBindingSource
             // 
@@ -558,12 +592,46 @@
             this.dateTimePicker1.TabIndex = 13;
             this.dateTimePicker1.Value = new System.DateTime(2018, 4, 30, 0, 0, 0, 0);
             // 
+            // t_TEST_PRJTableAdapter
+            // 
+            this.t_TEST_PRJTableAdapter.ClearBeforeFill = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(531, 307);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "修改";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DataSource = this.fKTTESTPRJTCOMPANYBindingSource;
+            this.comboBox4.DisplayMember = "COMPANY_NAME";
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(73, 50);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(158, 20);
+            this.comboBox4.TabIndex = 16;
+            // 
+            // fKTTESTPRJTCOMPANYBindingSource
+            // 
+            this.fKTTESTPRJTCOMPANYBindingSource.DataMember = "FK_T_TEST_PRJ_T_COMPANY";
+            this.fKTTESTPRJTCOMPANYBindingSource.DataSource = this.tTESTPRJBindingSource1;
+            // 
+            // t_COMPANYTableAdapter
+            // 
+            this.t_COMPANYTableAdapter.ClearBeforeFill = true;
+            // 
             // Main_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(711, 374);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label5);
@@ -589,10 +657,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tTESTPRJBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mTP1DataSet)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tTESTPRJBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKTTESTPRJTCOMPANYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,7 +711,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TabPage tabPage5;
       
         private System.Windows.Forms.BindingSource tTESTPRJBindingSource;
        
@@ -662,6 +731,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sEALEVELDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aGERANGEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rEMARKDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private MTP1DataSet mTP1DataSet;
+        private System.Windows.Forms.BindingSource tTESTPRJBindingSource1;
+        private MTP1DataSetTableAdapters.T_TEST_PRJTableAdapter t_TEST_PRJTableAdapter;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.BindingSource fKTTESTPRJTCOMPANYBindingSource;
+        private MTP1DataSetTableAdapters.T_COMPANYTableAdapter t_COMPANYTableAdapter;
     }
 }

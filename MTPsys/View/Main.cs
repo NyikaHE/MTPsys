@@ -15,6 +15,8 @@ namespace MTPsys
    
     public partial class Main : Form
     {
+        Point mouseOff;//鼠标移动位置变量    
+        bool leftFlag;//标签是否为左键    
         string Testid,CompanyId;
         private OleDbDataAdapter adapter;
         private DataSet ds;
@@ -148,14 +150,16 @@ namespace MTPsys
             for (i = 0; i < dataGridView1.RowCount; i++) {
                 if (dataGridView1.Rows[i].Selected==true) {            
                     //删除行
-                    Console.WriteLine(dataGridView1.Rows[i].Cells[0].Value);
+                    
                     OleDbConnection conn = Connect.getConnection();
-                    string sql = "delete from T_TEST_PRJ where TEST_ID='"+ dataGridView1.Rows[i].Cells[0].Value+ "'";
+                    /*string sql = "delete from T_TEST_PRJ where TEST_ID='"+ dataGridView1.Rows[i].Cells[1].Value+ "'";
                     OleDbCommand cmd = new OleDbCommand(sql,conn);
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    conn.Close();
+                    conn.Close();*/
                     dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
+                    ds.Tables["T_TEST_PRJ"].Rows[i].Delete();
+                    adapter.Update(ds.Tables["T_TEST_PRJ"]);
                 }
             }
         }
@@ -166,8 +170,8 @@ namespace MTPsys
             {
                 if (!r.IsNewRow)
                 {                  
-                    Testid = (string)r.Cells[0].Value;
-                    CompanyId= (string)r.Cells[1].Value;
+                    Testid = (string)r.Cells[1].Value;
+                    //CompanyId= (string)r.Cells[1].Value;
                 }
             }
             if (Testid != "")
@@ -218,6 +222,7 @@ namespace MTPsys
             PrintDialog.Document = printDocument;
             printDocument.Print();
         }
+        //绘制打印内容
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             //打印啥东东就在这写了
@@ -251,20 +256,70 @@ namespace MTPsys
 
             }
         }
+        
+        /*
+         * 无边框窗口通过定义mouse down,move,up来移动窗口
+         */
+        private void Main_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseOff = new Point(-e.X, -e.Y); //得到变量的值    
+                leftFlag = true;
+                //点击左键按下时标注为true;    
+            }
+        }
 
-        //双击打开
-        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        private void Main_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (leftFlag)
+            {
+                Point mouseSet = Control.MousePosition;
+                mouseSet.Offset(mouseOff.X, mouseOff.Y);
+                //设置移动后的位置    
+                Location = mouseSet;
+            }
+        }
+
+        private void Main_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (leftFlag)
+            {
+                leftFlag = false;//释放鼠标后标注为false;    
+            }
+        }
+        //编辑按钮
+        private void Edit_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
                 if (!r.IsNewRow)
                 {
-                    Testid = (string)r.Cells[0].Value;
-                  //CompanyId = (string)r.Cells[1].Value;
+                    Testid = (string)r.Cells[1].Value;
+                    //CompanyId = (string)r.Cells[1].Value;
                 }
             }
             if (Testid != "")
-                new Main_Open(Testid,falg).Show();
+                new Main_New(Testid).Show();
+            else
+            {
+                MessageBox.Show("行未选中");
+            }
+            
+        }
+        //双击打开
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            {
+                if (!r.IsNewRow)
+                {
+                    Testid = (string)r.Cells[1].Value;
+                    //CompanyId = (string)r.Cells[1].Value;
+                }
+            }
+            if (Testid != "")
+                new Main_Open(Testid, falg).Show();
             else
             {
                 MessageBox.Show("行未选中");

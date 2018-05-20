@@ -18,6 +18,7 @@ namespace MTPsys.Model
         private String examType;
         private String peopleType;
         private int standrad;
+        private string parent;
         
 
         public ExamModel(){
@@ -33,5 +34,6 @@ namespace MTPsys.Model
         public string PeopleType { get => peopleType; set => peopleType = value; }
         public string CompanyID { get => companyID; set => companyID = value; }
         public int Standrad { get => standrad; set => standrad = value; }
+        public string Parent { get => parent; set => parent = value; }
     }
 }

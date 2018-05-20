@@ -90,11 +90,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.t_TEST_PERSONTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PERSONTableAdapter();
             this.t_TESTPER_ITEMSTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TESTPER_ITEMSTableAdapter();
             this.OpenFile = new System.Windows.Forms.OpenFileDialog();
             this.print1 = new System.Windows.Forms.PrintDialog();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -415,7 +415,7 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "COMPANY_NAME";
-            this.dataGridViewTextBoxColumn10.HeaderText = "单位名";
+            this.dataGridViewTextBoxColumn10.HeaderText = "单位名称";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 80;
@@ -431,7 +431,7 @@
             // bASETESTDataGridViewTextBoxColumn
             // 
             this.bASETESTDataGridViewTextBoxColumn.DataPropertyName = "BASETEST";
-            this.bASETESTDataGridViewTextBoxColumn.HeaderText = "基础成绩";
+            this.bASETESTDataGridViewTextBoxColumn.HeaderText = "通用考核成绩";
             this.bASETESTDataGridViewTextBoxColumn.Name = "bASETESTDataGridViewTextBoxColumn";
             this.bASETESTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -480,7 +480,7 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "SUBJECT";
-            this.dataGridViewTextBoxColumn4.HeaderText = "测试科目";
+            this.dataGridViewTextBoxColumn4.HeaderText = "考核科目";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 140;
@@ -655,7 +655,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 20);
             this.label14.TabIndex = 2;
-            this.label14.Text = "人员体能信息";
+            this.label14.Text = "人员成绩信息";
             // 
             // label13
             // 
@@ -740,17 +740,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(515, 52);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(36, 37);
-            this.button7.TabIndex = 26;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // t_TEST_PERSONTableAdapter
             // 
             this.t_TEST_PERSONTableAdapter.ClearBeforeFill = true;
@@ -767,6 +756,18 @@
             // print1
             // 
             this.print1.UseEXDialog = true;
+            // 
+            // button7
+            // 
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(515, 52);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(36, 37);
+            this.button7.TabIndex = 26;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Main_Open
             // 
@@ -836,7 +837,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -870,6 +870,7 @@
         private System.Windows.Forms.BindingSource tTESTPERITEMSBindingSource;
         private MTP1DataSetTableAdapters.T_TESTPER_ITEMSTableAdapter t_TESTPER_ITEMSTableAdapter;
         private System.Windows.Forms.OpenFileDialog OpenFile;
+        private System.Windows.Forms.PrintDialog print1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEXDataGridViewTextBoxColumn1;
@@ -882,6 +883,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn rESULTSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.PrintDialog print1;
+        private System.Windows.Forms.Button button7;
     }
 }

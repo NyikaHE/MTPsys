@@ -3135,6 +3135,10 @@ namespace MTPsys {
             
             private global::System.Data.DataColumn columnSTANDRAD;
             
+            private global::System.Data.DataColumn columnPERSON_TYPE;
+            
+            private global::System.Data.DataColumn columnLIST_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public T_TEST_PRJDataTable() {
@@ -3314,6 +3318,22 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PERSON_TYPEColumn {
+                get {
+                    return this.columnPERSON_TYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LIST_IDColumn {
+                get {
+                    return this.columnLIST_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3367,7 +3387,9 @@ namespace MTPsys {
                         int SEALEVEL, 
                         string AGERANGE, 
                         string REMARK, 
-                        int STANDRAD) {
+                        int STANDRAD, 
+                        string PERSON_TYPE, 
+                        int LIST_ID) {
                 T_TEST_PRJRow rowT_TEST_PRJRow = ((T_TEST_PRJRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TEST_ID,
@@ -3387,7 +3409,9 @@ namespace MTPsys {
                         SEALEVEL,
                         AGERANGE,
                         REMARK,
-                        STANDRAD};
+                        STANDRAD,
+                        PERSON_TYPE,
+                        LIST_ID};
                 rowT_TEST_PRJRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_TEST_PRJRow);
                 return rowT_TEST_PRJRow;
@@ -3435,6 +3459,8 @@ namespace MTPsys {
                 this.columnAGERANGE = base.Columns["AGERANGE"];
                 this.columnREMARK = base.Columns["REMARK"];
                 this.columnSTANDRAD = base.Columns["STANDRAD"];
+                this.columnPERSON_TYPE = base.Columns["PERSON_TYPE"];
+                this.columnLIST_ID = base.Columns["LIST_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3476,6 +3502,10 @@ namespace MTPsys {
                 base.Columns.Add(this.columnREMARK);
                 this.columnSTANDRAD = new global::System.Data.DataColumn("STANDRAD", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSTANDRAD);
+                this.columnPERSON_TYPE = new global::System.Data.DataColumn("PERSON_TYPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPERSON_TYPE);
+                this.columnLIST_ID = new global::System.Data.DataColumn("LIST_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLIST_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTEST_ID}, true));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
@@ -7329,6 +7359,38 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string PERSON_TYPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableT_TEST_PRJ.PERSON_TYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“T_TEST_PRJ”中列“PERSON_TYPE”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_TEST_PRJ.PERSON_TYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int LIST_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableT_TEST_PRJ.LIST_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“T_TEST_PRJ”中列“LIST_ID”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_TEST_PRJ.LIST_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsTEST_DATENull() {
                 return this.IsNull(this.tableT_TEST_PRJ.TEST_DATEColumn);
             }
@@ -7529,6 +7591,30 @@ namespace MTPsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSTANDRADNull() {
                 this[this.tableT_TEST_PRJ.STANDRADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPERSON_TYPENull() {
+                return this.IsNull(this.tableT_TEST_PRJ.PERSON_TYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPERSON_TYPENull() {
+                this[this.tableT_TEST_PRJ.PERSON_TYPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLIST_IDNull() {
+                return this.IsNull(this.tableT_TEST_PRJ.LIST_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLIST_IDNull() {
+                this[this.tableT_TEST_PRJ.LIST_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -19,6 +19,7 @@ namespace MTPsys
     {
         private string test;
         private OleDbDataAdapter adapter;
+        OleDbCommandBuilder builder;
         private DataSet ds;
         public Main_Open(string testid,Boolean flag)
         {
@@ -35,7 +36,7 @@ namespace MTPsys
             OleDbConnection conn = Connect.getConnection();
             string sql = "select * from T_TEST_PERSON where TEST_ID='"+testid+"'";
             adapter = new OleDbDataAdapter(sql, conn);
-            OleDbCommandBuilder builder = new OleDbCommandBuilder(adapter);
+            builder = new OleDbCommandBuilder(adapter);
             adapter.InsertCommand = builder.GetInsertCommand();
             adapter.DeleteCommand = builder.GetDeleteCommand();
             adapter.UpdateCommand = builder.GetDeleteCommand();
@@ -82,7 +83,7 @@ namespace MTPsys
             //单位总分计算
             CompanyTest ct = new CompanyTest();
             ct.Process(test);
-
+            adapter.Update(ds.Tables["T_TEST_PERSON"]);
             MessageBox.Show("所有用户成绩已经计算完毕");
         }
 
@@ -192,10 +193,10 @@ namespace MTPsys
                 if (reader[15] != System.DBNull.Value) {
                     PersonItems pi8 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], reader[7], 8, "双杠臂屈伸", reader[15]);
                     db.WritePersonScore(pi8, conn1);
-                    string sqll = "update T_TEST_PERSON set LIST_ID=2,LIST_NAME='入伍考核类型' where PERSON_ID=@1";
+                    /*string sqll = "update T_TEST_PERSON set LIST_ID=2,LIST_NAME='入伍考核类型' where PERSON_ID=@1";
                     OleDbCommand cmds = new OleDbCommand(sqll,conn1);
                     cmds.Parameters.AddWithValue("@1", reader[0]);
-                    cmds.ExecuteNonQuery();
+                    cmds.ExecuteNonQuery();*/
                 } 
             }
             adapter.Update(ds.Tables["T_TEST_PERSON"]);
@@ -214,7 +215,7 @@ namespace MTPsys
                 if (!r.IsNewRow)
                 {
                     //向个人成绩窗格中填入数据；
-                    index = (string)r.Cells[1].Value;
+                    index = (string)r.Cells[0].Value;
                     OleDbConnection conn = Connect.getConnection();
                     string sql = "select * from T_TESTPER_ITEMS where PERSON_ID='" + index + "' and TEST_ID='"+test+"'";
                     OleDbDataAdapter adapter = new OleDbDataAdapter(sql, conn);
@@ -233,7 +234,14 @@ namespace MTPsys
                     height.Text = p.Height.ToString();
                     weight.Text = p.Weight.ToString();
                     grade.Text = p.Grade.ToString();
-                    mark.Text = p.Ispass.ToString();
+                    try
+                    {
+                        mark.Text = p.Ispass.ToString();
+                    }
+                    catch {
+                        mark.Text = "未评定";
+                    }
+                    
                     conn.Close();
                 }
             }
@@ -245,7 +253,7 @@ namespace MTPsys
             OutputXlsx outputXlsx = new OutputXlsx();
             outputXlsx.OutputAsExcelFile(TestPerson);
         }
-        //刷新按钮
+        //打印按钮
         private void button1_Click(object sender, EventArgs e)
         {
             print1.ShowDialog();
@@ -308,6 +316,19 @@ namespace MTPsys
                 c += 20;
 
             }
+        }
+        //刷新按钮
+        private void button7_Click(object sender, EventArgs e)
+        {
+            OleDbConnection conn = Connect.getConnection();
+            string sql = "select * from T_TEST_PERSON where TEST_ID='"+test+"'";
+            adapter = new OleDbDataAdapter(sql, conn);
+            builder = new OleDbCommandBuilder(adapter);
+            ds = new DataSet();
+            adapter.Fill(ds, "T_TEST_PERSON");
+            this.TestPerson.DataSource = ds.Tables["T_TEST_PERSON"];
+            conn.Close();
+            MessageBox.Show("页面已刷新！！");
         }
     }
 }
