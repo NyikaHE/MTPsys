@@ -13,151 +13,169 @@ namespace MTPsys
 {
     public partial class Main_New : Form
     {
-        string testType;
-        int standrad;
+        string testType="通用体能考核",personType="二类人员";
+        int standrad=60,listid=2;
         string test;
-        private OleDbDataAdapter adapter;
-        private DataSet ds;
-        private OleDbCommandBuilder builder;
+        DateTime dt = DateTime.Now;
+
+
         public Main_New()
         {
             InitializeComponent();
-            
+            dateTimePicker1.Value = dt.Date;
+            radioButton9.Enabled = false;
+            button2.Visible = false;
         }
         public Main_New(string testid)
         {
             InitializeComponent();
+            dateTimePicker1.Value = dt.Date;
             test = testid;
+            init();
             textBox2.Visible = false;
             Finish.Visible = false;
         }
-        private void Main_New_Load(object sender, EventArgs e)
-        {
-            // TODO: 这行代码将数据加载到表“mTP1DataSet.T_COMPANY”中。您可以根据需要移动或删除它。
-            //this.t_COMPANYTableAdapter.Fill(this.mTP1DataSet.T_COMPANY);
+
+        public void init() {
             OleDbConnection conn = Connect.getConnection();
-            string sql = "select COMPANY_NAME from T_TEST_PRJ";
-            adapter = new OleDbDataAdapter(sql, conn);
-            
-            ds = new DataSet();
-            adapter.Fill(ds, "T_TEST_PRJ");
-            this.comboBox2.DataSource = ds.Tables["T_TEST_PRJ"];
-            this.comboBox4.DataSource = ds.Tables["T_TEST_PRJ"];
-            conn.Close();
+            string sql = "select * from T_TEST_PRJ where TEST_ID='" + test + "'";
+            OleDbCommand cmd = new OleDbCommand(sql, conn);
+            conn.Open();
+            OleDbDataReader reader = cmd.ExecuteReader();//执行查询
+            reader.Read();
+            textBox1.Text = reader["COMPANY_NAME"].ToString();
+            comboBox1.Text = reader["COMLEVEL_NAME"].ToString();
+            textBox3.Text = reader["QTY_TOTAL"].ToString();
         }
-        //添加考核信息
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "" && comboBox1.Text == "" && textBox3.Text == "")
-            {
-                MessageBox.Show("信息为空请重新填入！！");
-            }
-            else
-            {
-                MessageBox.Show("考试信息添加成功，请继续添加考生信息！");
-            }
-        }
+        
         
         //编辑完成按钮
         private void Finish_Click(object sender, EventArgs e)
         {
-            ExamModel em = new ExamModel();
-            em.OrganName = textBox1.Text;
-            em.OrganLevel = comboBox1.Text;
-            em.ExamType = testType;
-            em.Peoples = Convert.ToInt32(textBox3.Text);
-            em.ExamTime = (DateTime)dateTimePicker1.Value;
-            em.ExamID = (string)textBox2.Text;
-            if (comboBox2 != null)
+            OleDbConnection conn = Connect.getConnection();
+            string sql = "select * from T_TEST_PRJ where TEST_ID='" + textBox2.Text + "'";
+            conn.Open();
+            OleDbCommand cmd = new OleDbCommand(sql, conn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
             {
-                em.Parent = (string)comboBox2.Text;
+                MessageBox.Show("考核编号重复，请重填！");
             }
             else {
-                em.Parent = "根节点";
+                ExamModel em = new ExamModel();
+                em.OrganName = textBox1.Text;
+                em.OrganLevel = comboBox1.Text;
+                em.ExamType = testType;
+                em.Peoples = Convert.ToInt32(textBox3.Text);
+                
+                em.ExamTime = (DateTime)dateTimePicker1.Value;
+                em.ExamID = textBox2.Text;
+                em.Parent = personType;
+                em.ExamType = testType;
+                em.Standrad = standrad;
+                em.Listid = listid;
+                DataBase db = new DataBase();
+                db.InsertExam(em);
+                this.Close(); 
             }
-            
-            em.ExamType = testType;
-            em.Standrad = standrad;
-            DataBase db = new DataBase();
-            db.InsertExam(em);
-            this.Close();
+            reader.Close();
+            conn.Close();  
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton2.Checked) testType = radioButton2.Text;
+            if (radioButton2.Checked)
+            {
+                testType = radioButton2.Text;
+                listid = 2;
+                radioButton9.Enabled = false;
+            }
+            else {
+                radioButton9.Enabled = true;
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton3.Checked) testType = radioButton3.Text;
+            if (radioButton3.Checked) { testType = radioButton3.Text;
+                listid = 3;
+            }
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton4.Checked) testType = radioButton4.Text;
+            if (radioButton4.Checked) { testType = radioButton4.Text;
+                listid = 4;
+            }
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton5.Checked) testType = radioButton5.Text;
+            if (radioButton5.Checked) { testType = radioButton5.Text;
+                listid = 1;
+                
+            }
         }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            standrad = 65;
+            if (radioButton6.Checked) {
+                standrad = 65;
+                personType = "一类人员";
+            }
+            
         }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
         {
-            standrad = 60;
+            if (radioButton7.Checked)
+            {
+                standrad = 60;
+                personType = "二类人员";
+            }
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
-            standrad = 55;
+            if (radioButton8.Checked)
+            {
+                standrad = 55;
+                personType = "三类人员";
+            }
+        }
+
+        private void Main_New_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
-            standrad = 50;
-        }
-        //修改完成按钮
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (textBox6.Text == "" && comboBox3.Text == "" && textBox7.Text == "")
+            if (radioButton9.Checked)
             {
-                MessageBox.Show("信息为空请重新填入！！");
+                personType = "入伍训练人员";
+                radioButton2.Enabled = false;
             }
-            else
-            {
-                MessageBox.Show("考试信息修改成功，请继续修改考生信息！");
+            else {
+                radioButton2.Enabled = true;
             }
         }
         //“修改”按钮事件
         private void button2_Click(object sender, EventArgs e)
         {
             ExamModel em = new ExamModel();
-            em.OrganName = textBox6.Text;
-            em.OrganLevel = comboBox3.Text;
-            em.Peoples = Convert.ToInt32(textBox7.Text);
+            em.OrganName = textBox1.Text;
+            em.OrganLevel = comboBox1.Text;
+            em.Peoples = Convert.ToInt32(textBox3.Text);
             em.ExamTime = (DateTime)dateTimePicker1.Value;
             em.ExamID = test;
-            if (comboBox4 != null)
-            {
-                em.Parent = (string)comboBox4.Text;
-            }
-            else
-            {
-                em.Parent = "根节点";
-            }
-
+            em.Listid = listid;
+            em.Parent = personType;
             em.ExamType = testType;
             em.Standrad = standrad;
             DataBase db = new DataBase();
             db.UpdateExam(em).ToString();
-            
-            
             this.Close();
         }
+
     }
 }

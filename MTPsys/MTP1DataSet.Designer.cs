@@ -44,8 +44,6 @@ namespace MTPsys {
         
         private global::System.Data.DataRelation relationFK_T_TEST_PRJ_T_COMPANY;
         
-        private global::System.Data.DataRelation relationFK_T_TEST_PERSON_T_TESTPER_ITEMS;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -391,7 +389,6 @@ namespace MTPsys {
                 }
             }
             this.relationFK_T_TEST_PRJ_T_COMPANY = this.Relations["FK_T_TEST_PRJ_T_COMPANY"];
-            this.relationFK_T_TEST_PERSON_T_TESTPER_ITEMS = this.Relations["FK_T_TEST_PERSON_T_TESTPER_ITEMS"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,21 +425,10 @@ namespace MTPsys {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_T_TEST_PERSON_T_TESTPER_ITEMS", new global::System.Data.DataColumn[] {
-                        this.tableT_TEST_PERSON.PERSON_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableT_TESTPER_ITEMS.PERSON_IDColumn});
-            this.tableT_TESTPER_ITEMS.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_T_TEST_PRJ_T_COMPANY = new global::System.Data.DataRelation("FK_T_TEST_PRJ_T_COMPANY", new global::System.Data.DataColumn[] {
                         this.tableT_TEST_PRJ.COMPANY_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableT_COMPANY.COMPANY_IDColumn}, false);
             this.Relations.Add(this.relationFK_T_TEST_PRJ_T_COMPANY);
-            this.relationFK_T_TEST_PERSON_T_TESTPER_ITEMS = new global::System.Data.DataRelation("FK_T_TEST_PERSON_T_TESTPER_ITEMS", new global::System.Data.DataColumn[] {
-                        this.tableT_TEST_PERSON.PERSON_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableT_TESTPER_ITEMS.PERSON_IDColumn}, false);
-            this.Relations.Add(this.relationFK_T_TEST_PERSON_T_TESTPER_ITEMS);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2832,12 +2818,12 @@ namespace MTPsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public T_TEST_PERSONRow AddT_TEST_PERSONRow(
                         string TEST_ID, 
-                        string PERSON_ID, 
+                        int PERSON_ID, 
                         string PERSON_NAME, 
                         string SEX, 
                         int AGE, 
-                        int HEIGHT, 
-                        int WEIGHT, 
+                        string HEIGHT, 
+                        string WEIGHT, 
                         string COMPANY_ID, 
                         string COMPANY_NAME, 
                         int LIST_ID, 
@@ -2846,7 +2832,7 @@ namespace MTPsys {
                         string FLYSTAGE, 
                         string BASETEST, 
                         int MAJORTEST, 
-                        string TOTALTEST) {
+                        int TOTALTEST) {
                 T_TEST_PERSONRow rowT_TEST_PERSONRow = ((T_TEST_PERSONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2869,13 +2855,6 @@ namespace MTPsys {
                 rowT_TEST_PERSONRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_TEST_PERSONRow);
                 return rowT_TEST_PERSONRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public T_TEST_PERSONRow FindByPERSON_ID(string PERSON_ID) {
-                return ((T_TEST_PERSONRow)(this.Rows.Find(new object[] {
-                            PERSON_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2921,7 +2900,7 @@ namespace MTPsys {
                 base.Columns.Add(this.columnAUTO_ID);
                 this.columnTEST_ID = new global::System.Data.DataColumn("TEST_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEST_ID);
-                this.columnPERSON_ID = new global::System.Data.DataColumn("PERSON_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPERSON_ID = new global::System.Data.DataColumn("PERSON_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPERSON_ID);
                 this.columnPERSON_NAME = new global::System.Data.DataColumn("PERSON_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPERSON_NAME);
@@ -2929,9 +2908,9 @@ namespace MTPsys {
                 base.Columns.Add(this.columnSEX);
                 this.columnAGE = new global::System.Data.DataColumn("AGE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAGE);
-                this.columnHEIGHT = new global::System.Data.DataColumn("HEIGHT", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnHEIGHT = new global::System.Data.DataColumn("HEIGHT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHEIGHT);
-                this.columnWEIGHT = new global::System.Data.DataColumn("WEIGHT", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnWEIGHT = new global::System.Data.DataColumn("WEIGHT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWEIGHT);
                 this.columnCOMPANY_ID = new global::System.Data.DataColumn("COMPANY_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOMPANY_ID);
@@ -2949,17 +2928,16 @@ namespace MTPsys {
                 base.Columns.Add(this.columnBASETEST);
                 this.columnMAJORTEST = new global::System.Data.DataColumn("MAJORTEST", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMAJORTEST);
-                this.columnTOTALTEST = new global::System.Data.DataColumn("TOTALTEST", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTOTALTEST = new global::System.Data.DataColumn("TOTALTEST", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTALTEST);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPERSON_ID}, true));
+                                this.columnAUTO_ID}, false));
                 this.columnAUTO_ID.AutoIncrement = true;
                 this.columnAUTO_ID.AutoIncrementSeed = -1;
                 this.columnAUTO_ID.AutoIncrementStep = -1;
+                this.columnAUTO_ID.Unique = true;
                 this.columnTEST_ID.MaxLength = 255;
                 this.columnPERSON_ID.AllowDBNull = false;
-                this.columnPERSON_ID.Unique = true;
-                this.columnPERSON_ID.MaxLength = 255;
                 this.columnPERSON_NAME.MaxLength = 255;
                 this.columnSEX.MaxLength = 255;
                 this.columnCOMPANY_ID.MaxLength = 255;
@@ -4174,12 +4152,12 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public T_TESTPER_ITEMSRow AddT_TESTPER_ITEMSRow(string TEST_ID, T_TEST_PERSONRow parentT_TEST_PERSONRowByFK_T_TEST_PERSON_T_TESTPER_ITEMS, string PERSON_NAME, string SEX, string COMPANY_ID, string COMPANY_NAME, int LIST_ID, string LIST_NAME, int SUBJECT_ID, string SUBJECT, string UNITS, decimal SCORE, string STANDARD, int ISPASS, int RESULTS) {
+            public T_TESTPER_ITEMSRow AddT_TESTPER_ITEMSRow(string TEST_ID, int PERSON_ID, string PERSON_NAME, string SEX, string COMPANY_ID, string COMPANY_NAME, int LIST_ID, string LIST_NAME, int SUBJECT_ID, string SUBJECT, string UNITS, decimal SCORE, string STANDARD, int ISPASS, int RESULTS) {
                 T_TESTPER_ITEMSRow rowT_TESTPER_ITEMSRow = ((T_TESTPER_ITEMSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         TEST_ID,
-                        null,
+                        PERSON_ID,
                         PERSON_NAME,
                         SEX,
                         COMPANY_ID,
@@ -4193,9 +4171,6 @@ namespace MTPsys {
                         STANDARD,
                         ISPASS,
                         RESULTS};
-                if ((parentT_TEST_PERSONRowByFK_T_TEST_PERSON_T_TESTPER_ITEMS != null)) {
-                    columnValuesArray[2] = parentT_TEST_PERSONRowByFK_T_TEST_PERSON_T_TESTPER_ITEMS[2];
-                }
                 rowT_TESTPER_ITEMSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_TESTPER_ITEMSRow);
                 return rowT_TESTPER_ITEMSRow;
@@ -4250,7 +4225,7 @@ namespace MTPsys {
                 base.Columns.Add(this.columnAUTO_ID);
                 this.columnTEST_ID = new global::System.Data.DataColumn("TEST_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEST_ID);
-                this.columnPERSON_ID = new global::System.Data.DataColumn("PERSON_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPERSON_ID = new global::System.Data.DataColumn("PERSON_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPERSON_ID);
                 this.columnPERSON_NAME = new global::System.Data.DataColumn("PERSON_NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPERSON_NAME);
@@ -4286,7 +4261,6 @@ namespace MTPsys {
                 this.columnAUTO_ID.AllowDBNull = false;
                 this.columnAUTO_ID.Unique = true;
                 this.columnTEST_ID.MaxLength = 255;
-                this.columnPERSON_ID.MaxLength = 255;
                 this.columnPERSON_NAME.MaxLength = 255;
                 this.columnSEX.MaxLength = 255;
                 this.columnCOMPANY_ID.MaxLength = 255;
@@ -6623,9 +6597,9 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string PERSON_ID {
+            public int PERSON_ID {
                 get {
-                    return ((string)(this[this.tableT_TEST_PERSON.PERSON_IDColumn]));
+                    return ((int)(this[this.tableT_TEST_PERSON.PERSON_IDColumn]));
                 }
                 set {
                     this[this.tableT_TEST_PERSON.PERSON_IDColumn] = value;
@@ -6682,10 +6656,10 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int HEIGHT {
+            public string HEIGHT {
                 get {
                     try {
-                        return ((int)(this[this.tableT_TEST_PERSON.HEIGHTColumn]));
+                        return ((string)(this[this.tableT_TEST_PERSON.HEIGHTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("表“T_TEST_PERSON”中列“HEIGHT”的值为 DBNull。", e);
@@ -6698,10 +6672,10 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int WEIGHT {
+            public string WEIGHT {
                 get {
                     try {
-                        return ((int)(this[this.tableT_TEST_PERSON.WEIGHTColumn]));
+                        return ((string)(this[this.tableT_TEST_PERSON.WEIGHTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("表“T_TEST_PERSON”中列“WEIGHT”的值为 DBNull。", e);
@@ -6842,10 +6816,10 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string TOTALTEST {
+            public int TOTALTEST {
                 get {
                     try {
-                        return ((string)(this[this.tableT_TEST_PERSON.TOTALTESTColumn]));
+                        return ((int)(this[this.tableT_TEST_PERSON.TOTALTESTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("表“T_TEST_PERSON”中列“TOTALTEST”的值为 DBNull。", e);
@@ -7046,17 +7020,6 @@ namespace MTPsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTOTALTESTNull() {
                 this[this.tableT_TEST_PERSON.TOTALTESTColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public T_TESTPER_ITEMSRow[] GetT_TESTPER_ITEMSRows() {
-                if ((this.Table.ChildRelations["FK_T_TEST_PERSON_T_TESTPER_ITEMS"] == null)) {
-                    return new T_TESTPER_ITEMSRow[0];
-                }
-                else {
-                    return ((T_TESTPER_ITEMSRow[])(base.GetChildRows(this.Table.ChildRelations["FK_T_TEST_PERSON_T_TESTPER_ITEMS"])));
-                }
             }
         }
         
@@ -7754,10 +7717,10 @@ namespace MTPsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string PERSON_ID {
+            public int PERSON_ID {
                 get {
                     try {
-                        return ((string)(this[this.tableT_TESTPER_ITEMS.PERSON_IDColumn]));
+                        return ((int)(this[this.tableT_TESTPER_ITEMS.PERSON_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("表“T_TESTPER_ITEMS”中列“PERSON_ID”的值为 DBNull。", e);
@@ -7973,17 +7936,6 @@ namespace MTPsys {
                 }
                 set {
                     this[this.tableT_TESTPER_ITEMS.RESULTSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public T_TEST_PERSONRow T_TEST_PERSONRow {
-                get {
-                    return ((T_TEST_PERSONRow)(this.GetParentRow(this.Table.ParentRelations["FK_T_TEST_PERSON_T_TESTPER_ITEMS"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_T_TEST_PERSON_T_TESTPER_ITEMS"]);
                 }
             }
             
@@ -13100,46 +13052,6 @@ namespace MTPsys.MTP1DataSetTableAdapters {
                 }
             }
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string TEST_ID, 
-                    string PERSON_NAME, 
-                    string SEX, 
-                    global::System.Nullable<int> AGE, 
-                    global::System.Nullable<float> HEIGHT, 
-                    global::System.Nullable<float> WEIGHT, 
-                    string COMPANY_ID, 
-                    string COMPANY_NAME, 
-                    global::System.Nullable<int> LIST_ID, 
-                    string LIST_NAME, 
-                    bool ISFLYMAJOR, 
-                    string FLYSTAGE, 
-                    string BASETEST, 
-                    global::System.Nullable<int> MAJORTEST, 
-                    string TOTALTEST, 
-                    int Original_AUTO_ID, 
-                    string Original_TEST_ID, 
-                    string Original_PERSON_ID, 
-                    string Original_PERSON_NAME, 
-                    string Original_SEX, 
-                    global::System.Nullable<int> Original_AGE, 
-                    global::System.Nullable<float> Original_HEIGHT, 
-                    global::System.Nullable<float> Original_WEIGHT, 
-                    string Original_COMPANY_ID, 
-                    string Original_COMPANY_NAME, 
-                    global::System.Nullable<int> Original_LIST_ID, 
-                    string Original_LIST_NAME, 
-                    bool Original_ISFLYMAJOR, 
-                    string Original_FLYSTAGE, 
-                    string Original_BASETEST, 
-                    global::System.Nullable<int> Original_MAJORTEST, 
-                    string Original_TOTALTEST) {
-            return this.Update(TEST_ID, Original_PERSON_ID, PERSON_NAME, SEX, AGE, HEIGHT, WEIGHT, COMPANY_ID, COMPANY_NAME, LIST_ID, LIST_NAME, ISFLYMAJOR, FLYSTAGE, BASETEST, MAJORTEST, TOTALTEST, Original_AUTO_ID, Original_TEST_ID, Original_PERSON_ID, Original_PERSON_NAME, Original_SEX, Original_AGE, Original_HEIGHT, Original_WEIGHT, Original_COMPANY_ID, Original_COMPANY_NAME, Original_LIST_ID, Original_LIST_NAME, Original_ISFLYMAJOR, Original_FLYSTAGE, Original_BASETEST, Original_MAJORTEST, Original_TOTALTEST);
-        }
     }
     
     /// <summary>
@@ -16061,15 +15973,6 @@ namespace MTPsys.MTP1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(MTP1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t_TEST_PERSONTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._t_TEST_PERSONTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._t_TEST_PRJTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.T_TEST_PRJ.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -16115,6 +16018,15 @@ namespace MTPsys.MTP1DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._t_TEST_PERSONTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._t_TEST_PERSONTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._t_TESTLISTTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.T_TESTLIST.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -16152,14 +16064,6 @@ namespace MTPsys.MTP1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(MTP1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t_TEST_PERSONTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._t_TEST_PERSONTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._t_TEST_PRJTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.T_TEST_PRJ.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -16197,6 +16101,14 @@ namespace MTPsys.MTP1DataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._t_RESULTS1TableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._t_TEST_PERSONTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._t_TEST_PERSONTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16258,6 +16170,14 @@ namespace MTPsys.MTP1DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._t_TEST_PERSONTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._t_TEST_PERSONTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._t_RESULTS1TableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.T_RESULTS1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16295,14 +16215,6 @@ namespace MTPsys.MTP1DataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._t_TEST_PRJTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._t_TEST_PERSONTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.T_TEST_PERSON.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._t_TEST_PERSONTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

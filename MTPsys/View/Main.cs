@@ -111,7 +111,14 @@ namespace MTPsys
         //最大化
         private void Max_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else {
+                this.WindowState = FormWindowState.Normal;
+            }
+            
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -126,7 +133,9 @@ namespace MTPsys
         //打开创建面板；
         private void New_Click(object sender, EventArgs e)
         {
-            new Main_New().Show();
+            Form f2=new Main_New();
+            f2.Show();
+            
         }
         //刷新按钮事件
         private void Fresh_Click(object sender, EventArgs e)
@@ -150,13 +159,15 @@ namespace MTPsys
             for (i = 0; i < dataGridView1.RowCount; i++) {
                 if (dataGridView1.Rows[i].Selected==true) {            
                     //删除行
-                    
                     OleDbConnection conn = Connect.getConnection();
-                    /*string sql = "delete from T_TEST_PRJ where TEST_ID='"+ dataGridView1.Rows[i].Cells[1].Value+ "'";
+                    string sql = "delete from T_TEST_PERSON where TEST_ID='"+ dataGridView1.Rows[i].Cells[0].Value+ "'";
+                    string sql1 = "delete from T_TESTPER_ITEMS where TEST_ID='" + dataGridView1.Rows[i].Cells[0].Value + "'";
                     OleDbCommand cmd = new OleDbCommand(sql,conn);
+                    OleDbCommand cmd1 = new OleDbCommand(sql1, conn);
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    conn.Close();*/
+                    cmd1.ExecuteNonQuery();
+                    conn.Close();
                     dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
                     ds.Tables["T_TEST_PRJ"].Rows[i].Delete();
                     adapter.Update(ds.Tables["T_TEST_PRJ"]);
@@ -170,7 +181,7 @@ namespace MTPsys
             {
                 if (!r.IsNewRow)
                 {                  
-                    Testid = (string)r.Cells[1].Value;
+                    Testid = (string)r.Cells[0].Value;
                     //CompanyId= (string)r.Cells[1].Value;
                 }
             }
@@ -226,34 +237,53 @@ namespace MTPsys
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             //打印啥东东就在这写了
-            int i;
+            int i,width;
+            int r = 5;
+            int c = 80;
+            //格式化
+            System.Globalization.NumberFormatInfo format = new System.Globalization.NumberFormatInfo();
+            format.NumberDecimalDigits = 1;//小数点保留两位
+            format.PercentDecimalDigits = 1;//百分数出现的小数点位数
             Graphics g = e.Graphics;
             Brush b = new SolidBrush(Color.Black);
             Font titleFont = new Font("宋体", 16);
             string title = "项目考核汇总表";
-            string[] tit = new string[9]{"考核编号","单位名称","单位级别","实力数","参考人数","参考率","及格人数","不及格人数","及格率"};
-            for (i = 0; i < 9; i++) {
-                g.DrawString(tit[i], new Font("宋体", 10, FontStyle.Regular), Brushes.Black, 95*i+5, 40);
+            string[] tit = new string[11]{"考核编号","日期","单位名称","单位级别","实力数", "人员类型", "参考人数","参考率","及格人数","不及格人数","及格率"};
+            for (i = 0; i < 11; i++) {
+                g.DrawString(tit[i], new Font("宋体", 8, FontStyle.Regular), Brushes.Black, r, 60);
+                width = dataGridView1.Columns[i].Width;
+                r = r + width;
             }
             g.DrawString(title, titleFont, b, new PointF((e.PageBounds.Width - g.MeasureString(title, titleFont).Width) / 2, 20));
 
-            int r = 5;
-            int c = 60;
+            r = 5;
             for (i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
-                    if (j != 1) {
+                    if (j == 1)
+                    {
+                        string data = Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value).ToString("yyyy/MM/dd");
+                        width = dataGridView1.Columns[j].Width;
+                        g.DrawString(data, new Font("宋体", 8, FontStyle.Regular), Brushes.Black, r, c);
+                        r = r + width;
+                    }
+                    else if (j == 7|| j == 10) {
+                        string data = Convert.ToDouble(dataGridView1.Rows[i].Cells[j].Value).ToString("P", format);
+                        width = dataGridView1.Columns[j].Width;
+                        g.DrawString(data, new Font("宋体", 8, FontStyle.Regular), Brushes.Black, r, c);
+                        r = r + width;
+                    }
+                    else
+                    {
                         string data = dataGridView1.Rows[i].Cells[j].Value.ToString();
-                        int width = dataGridView1.Columns[j].Width+20;
-                        Console.WriteLine(data);
-                        g.DrawString(data, new Font("宋体", 10, FontStyle.Regular), Brushes.Black, r, c);
+                        width = dataGridView1.Columns[j].Width;
+                        g.DrawString(data, new Font("宋体", 8, FontStyle.Regular), Brushes.Black, r, c);
                         r = r + width;
                     }
                 }
                 r = 5;
                 c += 20;
-
             }
         }
         
@@ -295,7 +325,7 @@ namespace MTPsys
             {
                 if (!r.IsNewRow)
                 {
-                    Testid = (string)r.Cells[1].Value;
+                    Testid = (string)r.Cells[0].Value;
                     //CompanyId = (string)r.Cells[1].Value;
                 }
             }
@@ -314,8 +344,7 @@ namespace MTPsys
             {
                 if (!r.IsNewRow)
                 {
-                    Testid = (string)r.Cells[1].Value;
-                    //CompanyId = (string)r.Cells[1].Value;
+                    Testid = (string)r.Cells[0].Value;
                 }
             }
             if (Testid != "")

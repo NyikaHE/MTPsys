@@ -9,14 +9,14 @@ namespace MTPsys.Model
 {
     class CaculateItems
     {
-        private string personid;
+        private int personid;
         private string sex;
         private int age;
         private float height;
         private float weight;
 
 
-        public string Personid { get => personid; set => personid = value; }
+        public int Personid { get => personid; set => personid = value; }
         public string Sex { get => sex; set => sex = value; }
         public float Height { get => height; set => height = value; }
         public float Weight { get => weight; set => weight = value; }

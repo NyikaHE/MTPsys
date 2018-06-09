@@ -11,6 +11,7 @@ namespace MTPsys.Model
     {
         private string testid;
         private string Companyname;
+        private int listid;
         private int sls;
         private int joins;
         private int standrad;
@@ -20,5 +21,6 @@ namespace MTPsys.Model
         public int Sls { get => sls; set => sls = value; }
         public int Joins { get => joins; set => joins = value; }
         public int Standrad { get => standrad; set => standrad = value; }
+        public int Listid { get => listid; set => listid = value; }
     }
 }

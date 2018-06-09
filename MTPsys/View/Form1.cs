@@ -29,30 +29,6 @@ namespace MTPsys
             textBox2.Visible = true;
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (radioButton1.Checked&& textBox1.Text!=""&& textBox2.Text!="")
-            {//用户登陆，验证是否填入了用户名和密码
-                DataBase db = new DataBase();
-                if (db.GetUser(textBox1.Text, textBox2.Text))
-                {
-                    this.Close();
-                    new Main(true).Show();
-                }
-                else
-                {
-                    MessageBox.Show("用户名或密码错误！！");
-                }
-
-            }
-            else if(textBox1.Text != "")
-            {
-                //游客登陆
-                this.Close();
-                new Main(false).Show();
-            }
-        }
-
         private void Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -84,6 +60,59 @@ namespace MTPsys
             if (leftFlag)
             {
                 leftFlag = false;//释放鼠标后标注为false;    
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)//判断回车键
+            {
+                this.button1_Click(sender, e);//触发按钮事件
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            if (radioButton1.Checked && textBox1.Text != "" && textBox2.Text != "")
+            {//用户登陆，验证是否填入了用户名和密码
+                DataBase db = new DataBase();
+                if (db.GetUser(textBox1.Text, textBox2.Text))
+                {
+                    this.Close();
+                    new Main(true).Show();
+                }
+                else
+                {
+                    MessageBox.Show("用户名或密码错误！！");
+                }
+
+            }
+            else if (textBox1.Text != "" && radioButton2.Checked)
+            {
+                //游客登陆
+                this.Close();
+                new Main(false).Show();
+            }
+            else
+            {
+                MessageBox.Show("用户名或密码未填写！！");
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)//判断回车键
+            {
+                this.button1_Click(sender, e);//触发按钮事件
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)//判断回车键
+            {
+                this.button1_Click(sender, e);//触发按钮事件
             }
         }
     }

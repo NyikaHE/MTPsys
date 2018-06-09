@@ -33,14 +33,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.companyname = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.sex = new System.Windows.Forms.ComboBox();
-            this.testtype = new System.Windows.Forms.ComboBox();
             this.age = new System.Windows.Forms.TextBox();
             this.weight = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,9 +46,22 @@
             this.ID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sCOREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sg = new System.Windows.Forms.TextBox();
+            this.dg = new System.Windows.Forms.TextBox();
+            this.yt = new System.Windows.Forms.TextBox();
+            this.sq = new System.Windows.Forms.TextBox();
+            this.s = new System.Windows.Forms.TextBox();
+            this.y = new System.Windows.Forms.TextBox();
+            this.f = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tTESTITEMSBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mTP1DataSet11 = new MTPsys.MTP1DataSet1();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,7 +69,6 @@
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tTESTITEMSBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mTP1DataSet11)).BeginInit();
             this.SuspendLayout();
@@ -87,14 +95,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.companyname);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.sex);
-            this.groupBox1.Controls.Add(this.testtype);
             this.groupBox1.Controls.Add(this.age);
             this.groupBox1.Controls.Add(this.weight);
             this.groupBox1.Controls.Add(this.height);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -110,23 +114,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "人员基本信息";
             // 
-            // companyname
-            // 
-            this.companyname.Location = new System.Drawing.Point(625, 100);
-            this.companyname.Name = "companyname";
-            this.companyname.Size = new System.Drawing.Size(100, 21);
-            this.companyname.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(535, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "单位名称：";
-            // 
             // sex
             // 
             this.sex.FormattingEnabled = true;
@@ -137,16 +124,6 @@
             this.sex.Name = "sex";
             this.sex.Size = new System.Drawing.Size(100, 20);
             this.sex.TabIndex = 15;
-            // 
-            // testtype
-            // 
-            this.testtype.FormattingEnabled = true;
-            this.testtype.Items.AddRange(new object[] {
-            "通用体能考核"});
-            this.testtype.Location = new System.Drawing.Point(118, 100);
-            this.testtype.Name = "testtype";
-            this.testtype.Size = new System.Drawing.Size(323, 20);
-            this.testtype.TabIndex = 14;
             // 
             // age
             // 
@@ -168,16 +145,6 @@
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(100, 21);
             this.height.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(40, 100);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "考核类型：";
             // 
             // label7
             // 
@@ -255,7 +222,22 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.sg);
+            this.groupBox2.Controls.Add(this.dg);
+            this.groupBox2.Controls.Add(this.yt);
+            this.groupBox2.Controls.Add(this.sq);
+            this.groupBox2.Controls.Add(this.s);
+            this.groupBox2.Controls.Add(this.y);
+            this.groupBox2.Controls.Add(this.f);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(4, 199);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(749, 215);
@@ -263,35 +245,149 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "项目基本成绩";
             // 
-            // dataGridView1
+            // sg
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.sCOREDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tTESTITEMSBindingSource1;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 189);
-            this.dataGridView1.TabIndex = 0;
+            this.sg.Location = new System.Drawing.Point(545, 115);
+            this.sg.Name = "sg";
+            this.sg.Size = new System.Drawing.Size(162, 21);
+            this.sg.TabIndex = 15;
             // 
-            // dataGridViewTextBoxColumn3
+            // dg
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ITEMS";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ITEMS";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 350;
+            this.dg.Location = new System.Drawing.Point(545, 79);
+            this.dg.Name = "dg";
+            this.dg.Size = new System.Drawing.Size(162, 21);
+            this.dg.TabIndex = 14;
             // 
-            // sCOREDataGridViewTextBoxColumn
+            // yt
             // 
-            this.sCOREDataGridViewTextBoxColumn.DataPropertyName = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.HeaderText = "SCORE";
-            this.sCOREDataGridViewTextBoxColumn.Name = "sCOREDataGridViewTextBoxColumn";
-            this.sCOREDataGridViewTextBoxColumn.Width = 350;
+            this.yt.Location = new System.Drawing.Point(545, 47);
+            this.yt.Name = "yt";
+            this.yt.Size = new System.Drawing.Size(162, 21);
+            this.yt.TabIndex = 13;
+            // 
+            // sq
+            // 
+            this.sq.Location = new System.Drawing.Point(153, 144);
+            this.sq.Name = "sq";
+            this.sq.Size = new System.Drawing.Size(162, 21);
+            this.sq.TabIndex = 12;
+            // 
+            // s
+            // 
+            this.s.Location = new System.Drawing.Point(153, 115);
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(162, 21);
+            this.s.TabIndex = 11;
+            // 
+            // y
+            // 
+            this.y.Location = new System.Drawing.Point(153, 83);
+            this.y.Name = "y";
+            this.y.Size = new System.Drawing.Size(162, 21);
+            this.y.TabIndex = 10;
+            // 
+            // f
+            // 
+            this.f.Location = new System.Drawing.Point(153, 48);
+            this.f.Name = "f";
+            this.f.Size = new System.Drawing.Size(162, 21);
+            this.f.TabIndex = 9;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(417, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 12);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "项目";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Wheat;
+            this.label17.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Location = new System.Drawing.Point(403, 80);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(145, 20);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "单杠屈臂悬垂:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Wheat;
+            this.label16.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(403, 48);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(103, 20);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "引体向上:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Wheat;
+            this.label15.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(403, 111);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(124, 20);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "双杠臂屈伸:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Wheat;
+            this.label14.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(54, 144);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 20);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "3000米:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Wheat;
+            this.label13.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(54, 111);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 20);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "往返跑:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Wheat;
+            this.label12.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(54, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(103, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "仰卧起坐:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Wheat;
+            this.label11.Font = new System.Drawing.Font("汉仪南宫体简", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(54, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 20);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "俯卧撑：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(76, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 12);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "项目";
             // 
             // tTESTITEMSBindingSource1
             // 
@@ -328,15 +424,14 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
- //           this.Name = "OpenEdit";
+           
             this.Text = "OpenEdit";
-            this.Load += new System.EventHandler(this.OpenEdit_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tTESTITEMSBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mTP1DataSet11)).EndInit();
             this.ResumeLayout(false);
@@ -351,7 +446,6 @@
         private System.Windows.Forms.TextBox age;
         private System.Windows.Forms.TextBox weight;
         private System.Windows.Forms.TextBox height;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -361,7 +455,6 @@
         private System.Windows.Forms.TextBox ID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
      
         private System.Windows.Forms.DataGridViewTextBoxColumn sUBJECTDataGridViewTextBoxColumn;
@@ -373,12 +466,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iTEMSDataGridViewTextBoxColumn;
         private MTP1DataSet1 mTP1DataSet11;
         private MTP1DataSet1TableAdapters.T_TEST_ITEMSTableAdapter t_TEST_ITEMSTableAdapter1;
-        private System.Windows.Forms.ComboBox testtype;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sCOREDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox sex;
-        private System.Windows.Forms.TextBox companyname;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.BindingSource tTESTITEMSBindingSource1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox sg;
+        private System.Windows.Forms.TextBox dg;
+        private System.Windows.Forms.TextBox yt;
+        private System.Windows.Forms.TextBox sq;
+        private System.Windows.Forms.TextBox s;
+        private System.Windows.Forms.TextBox y;
+        private System.Windows.Forms.TextBox f;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }

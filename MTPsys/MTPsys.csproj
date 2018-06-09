@@ -10,6 +10,21 @@
     <AssemblyName>MTPsys</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -30,6 +45,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,14 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connect.cs" />
-    <Compile Include="DataBase.cs" />
-    <Compile Include="Logic\CompanyTest.cs" />
+    <Compile Include="Logic\BigJohn.cs" />
+    <Compile Include="Util\Comparetion.cs" />
+    <Compile Include="Util\Connect.cs" />
+    <Compile Include="Util\DataBase.cs" />
+    <Compile Include="Logic\ArmyGrade.cs" />
     <Compile Include="Logic\OutputXlsx.cs" />
-    <Compile Include="Logic\PersonGrade.cs" />
-    <Compile Include="Logic\QueryGrades.cs" />
-    <Compile Include="Logic\QueryStatue.cs" />
-    <Compile Include="Logic\Worker.cs" />
+    <Compile Include="Logic\IndividualGrade.cs" />
+    <Compile Include="Logic\ItemGrade.cs" />
+    <Compile Include="Logic\BMIcaculate.cs" />
+    <Compile Include="Logic\Veteran.cs" />
     <Compile Include="Model\CaculateItems.cs" />
     <Compile Include="Model\ExamModel.cs" />
     <Compile Include="Model\Person.cs" />
@@ -168,6 +192,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.ico" />
     <Content Include="MTP1.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -203,6 +228,13 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

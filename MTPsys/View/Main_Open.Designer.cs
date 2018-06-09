@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Open));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,8 +62,8 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lISTNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BASETEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bASETESTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tTESTPERSONBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.mTP1DataSet = new MTPsys.MTP1DataSet();
             this.Profile = new System.Windows.Forms.DataGridView();
@@ -90,11 +94,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.t_TEST_PERSONTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PERSONTableAdapter();
-            this.t_TESTPER_ITEMSTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TESTPER_ITEMSTableAdapter();
             this.OpenFile = new System.Windows.Forms.OpenFileDialog();
             this.print1 = new System.Windows.Forms.PrintDialog();
             this.button7 = new System.Windows.Forms.Button();
+            this.t_TEST_PERSONTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TEST_PERSONTableAdapter();
+            this.t_TESTPER_ITEMSTableAdapter = new MTPsys.MTP1DataSetTableAdapters.T_TESTPER_ITEMSTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,7 +116,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 47);
+            this.panel1.Size = new System.Drawing.Size(815, 47);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -164,7 +168,7 @@
             this.textBox4.BackColor = System.Drawing.Color.ForestGreen;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox4.Location = new System.Drawing.Point(16, 255);
+            this.textBox4.Location = new System.Drawing.Point(18, 260);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(211, 19);
@@ -175,7 +179,7 @@
             this.textBox3.BackColor = System.Drawing.Color.ForestGreen;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Location = new System.Drawing.Point(16, 201);
+            this.textBox3.Location = new System.Drawing.Point(18, 206);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(211, 19);
@@ -186,7 +190,7 @@
             this.textBox2.BackColor = System.Drawing.Color.ForestGreen;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Location = new System.Drawing.Point(17, 151);
+            this.textBox2.Location = new System.Drawing.Point(19, 156);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(211, 19);
@@ -197,7 +201,7 @@
             this.textBox1.BackColor = System.Drawing.Color.ForestGreen;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(19, 95);
+            this.textBox1.Location = new System.Drawing.Point(22, 99);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(211, 19);
@@ -348,7 +352,7 @@
             this.panel4.Controls.Add(this.label13);
             this.panel4.Location = new System.Drawing.Point(259, 91);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(640, 478);
+            this.panel4.Size = new System.Drawing.Size(556, 478);
             this.panel4.TabIndex = 17;
             // 
             // TestPerson
@@ -359,6 +363,14 @@
             this.TestPerson.AllowUserToResizeRows = false;
             this.TestPerson.AutoGenerateColumns = false;
             this.TestPerson.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TestPerson.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.TestPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TestPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -367,80 +379,100 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.lISTNAMEDataGridViewTextBoxColumn1,
-            this.bASETESTDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn11});
+            this.BASETEST,
+            this.bASETESTDataGridViewTextBoxColumn});
             this.TestPerson.DataSource = this.tTESTPERSONBindingSource5;
-            this.TestPerson.Location = new System.Drawing.Point(0, 21);
+            this.TestPerson.Location = new System.Drawing.Point(0, 0);
             this.TestPerson.Name = "TestPerson";
             this.TestPerson.ReadOnly = true;
             this.TestPerson.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TestPerson.RowHeadersVisible = false;
             this.TestPerson.RowTemplate.Height = 23;
             this.TestPerson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TestPerson.Size = new System.Drawing.Size(638, 194);
+            this.TestPerson.Size = new System.Drawing.Size(555, 194);
             this.TestPerson.TabIndex = 26;
-            this.TestPerson.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TestPerson_MouseClick);
+            this.TestPerson.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.TestPerson_RowEnter);
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "PERSON_ID";
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn1.HeaderText = "编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 70;
+            this.dataGridViewTextBoxColumn1.Width = 54;
             // 
             // dataGridViewTextBoxColumn8
             // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn8.DataPropertyName = "PERSON_NAME";
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn8.HeaderText = "姓名";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 60;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn8.Width = 80;
             // 
             // sEXDataGridViewTextBoxColumn1
             // 
+            this.sEXDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.sEXDataGridViewTextBoxColumn1.DataPropertyName = "SEX";
             this.sEXDataGridViewTextBoxColumn1.HeaderText = "性别";
             this.sEXDataGridViewTextBoxColumn1.Name = "sEXDataGridViewTextBoxColumn1";
             this.sEXDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sEXDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.sEXDataGridViewTextBoxColumn1.Width = 50;
             // 
             // dataGridViewTextBoxColumn9
             // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn9.DataPropertyName = "AGE";
             this.dataGridViewTextBoxColumn9.HeaderText = "年龄";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn9.Width = 50;
             // 
             // dataGridViewTextBoxColumn10
             // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn10.DataPropertyName = "COMPANY_NAME";
             this.dataGridViewTextBoxColumn10.HeaderText = "单位名称";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn10.Width = 80;
             // 
             // lISTNAMEDataGridViewTextBoxColumn1
             // 
+            this.lISTNAMEDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.lISTNAMEDataGridViewTextBoxColumn1.DataPropertyName = "LIST_NAME";
             this.lISTNAMEDataGridViewTextBoxColumn1.HeaderText = "考核类型";
             this.lISTNAMEDataGridViewTextBoxColumn1.Name = "lISTNAMEDataGridViewTextBoxColumn1";
             this.lISTNAMEDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.lISTNAMEDataGridViewTextBoxColumn1.Width = 80;
+            this.lISTNAMEDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lISTNAMEDataGridViewTextBoxColumn1.Width = 90;
+            // 
+            // BASETEST
+            // 
+            this.BASETEST.DataPropertyName = "TOTALTEST";
+            this.BASETEST.HeaderText = "总分";
+            this.BASETEST.Name = "BASETEST";
+            this.BASETEST.ReadOnly = true;
+            this.BASETEST.Width = 60;
             // 
             // bASETESTDataGridViewTextBoxColumn
             // 
+            this.bASETESTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.bASETESTDataGridViewTextBoxColumn.DataPropertyName = "BASETEST";
-            this.bASETESTDataGridViewTextBoxColumn.HeaderText = "通用考核成绩";
+            this.bASETESTDataGridViewTextBoxColumn.HeaderText = "考核成绩";
             this.bASETESTDataGridViewTextBoxColumn.Name = "bASETESTDataGridViewTextBoxColumn";
             this.bASETESTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TOTALTEST";
-            this.dataGridViewTextBoxColumn11.HeaderText = "总成绩";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.bASETESTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.bASETESTDataGridViewTextBoxColumn.Width = 68;
             // 
             // tTESTPERSONBindingSource5
             // 
@@ -459,6 +491,14 @@
             this.Profile.AllowUserToResizeColumns = false;
             this.Profile.AutoGenerateColumns = false;
             this.Profile.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Profile.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.Profile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Profile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
@@ -472,9 +512,10 @@
             this.Profile.Name = "Profile";
             this.Profile.ReadOnly = true;
             this.Profile.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Profile.RowHeadersVisible = false;
             this.Profile.RowTemplate.Height = 23;
             this.Profile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Profile.Size = new System.Drawing.Size(637, 184);
+            this.Profile.Size = new System.Drawing.Size(553, 184);
             this.Profile.TabIndex = 25;
             // 
             // dataGridViewTextBoxColumn4
@@ -518,7 +559,7 @@
             // 
             this.mark.AutoSize = true;
             this.mark.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.mark.Location = new System.Drawing.Point(531, 268);
+            this.mark.Location = new System.Drawing.Point(463, 270);
             this.mark.Name = "mark";
             this.mark.Size = new System.Drawing.Size(0, 20);
             this.mark.TabIndex = 24;
@@ -527,7 +568,7 @@
             // 
             this.grade.AutoSize = true;
             this.grade.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.grade.Location = new System.Drawing.Point(386, 270);
+            this.grade.Location = new System.Drawing.Point(259, 270);
             this.grade.Name = "grade";
             this.grade.Size = new System.Drawing.Size(0, 20);
             this.grade.TabIndex = 23;
@@ -536,7 +577,7 @@
             // 
             this.weight.AutoSize = true;
             this.weight.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.weight.Location = new System.Drawing.Point(241, 268);
+            this.weight.Location = new System.Drawing.Point(92, 270);
             this.weight.Name = "weight";
             this.weight.Size = new System.Drawing.Size(0, 20);
             this.weight.TabIndex = 22;
@@ -545,7 +586,7 @@
             // 
             this.height.AutoSize = true;
             this.height.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.height.Location = new System.Drawing.Point(96, 268);
+            this.height.Location = new System.Drawing.Point(455, 239);
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(0, 20);
             this.height.TabIndex = 21;
@@ -554,7 +595,7 @@
             // 
             this.age.AutoSize = true;
             this.age.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.age.Location = new System.Drawing.Point(484, 239);
+            this.age.Location = new System.Drawing.Point(322, 239);
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(0, 20);
             this.age.TabIndex = 20;
@@ -563,7 +604,7 @@
             // 
             this.gender.AutoSize = true;
             this.gender.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gender.Location = new System.Drawing.Point(300, 240);
+            this.gender.Location = new System.Drawing.Point(200, 240);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(0, 20);
             this.gender.TabIndex = 19;
@@ -572,7 +613,7 @@
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.name.Location = new System.Drawing.Point(108, 239);
+            this.name.Location = new System.Drawing.Point(73, 239);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(0, 20);
             this.name.TabIndex = 18;
@@ -581,37 +622,37 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(313, 266);
+            this.label21.Location = new System.Drawing.Point(180, 270);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 20);
+            this.label21.Size = new System.Drawing.Size(68, 20);
             this.label21.TabIndex = 9;
-            this.label21.Text = "考核成绩：";
+            this.label21.Text = "考核成绩:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(460, 267);
+            this.label20.Location = new System.Drawing.Point(388, 270);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(79, 20);
+            this.label20.Size = new System.Drawing.Size(68, 20);
             this.label20.TabIndex = 8;
-            this.label20.Text = "成绩评定：";
+            this.label20.Text = "成绩评定:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(59, 240);
+            this.label19.Location = new System.Drawing.Point(27, 240);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 20);
+            this.label19.Size = new System.Drawing.Size(40, 20);
             this.label19.TabIndex = 7;
-            this.label19.Text = "姓名：";
+            this.label19.Text = "姓名:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(23, 268);
+            this.label18.Location = new System.Drawing.Point(388, 239);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 20);
             this.label18.TabIndex = 6;
@@ -621,17 +662,17 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(252, 240);
+            this.label17.Location = new System.Drawing.Point(152, 240);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 20);
+            this.label17.Size = new System.Drawing.Size(40, 20);
             this.label17.TabIndex = 5;
-            this.label17.Text = "性别：";
+            this.label17.Text = "性别:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(172, 269);
+            this.label16.Location = new System.Drawing.Point(27, 270);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(63, 20);
             this.label16.TabIndex = 4;
@@ -641,7 +682,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(416, 240);
+            this.label15.Location = new System.Drawing.Point(257, 240);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(62, 20);
             this.label15.TabIndex = 3;
@@ -650,10 +691,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("微软雅黑 Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(258, 215);
+            this.label14.Font = new System.Drawing.Font("微软雅黑 Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(215, 206);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 20);
+            this.label14.Size = new System.Drawing.Size(126, 25);
             this.label14.TabIndex = 2;
             this.label14.Text = "人员成绩信息";
             // 
@@ -679,6 +720,7 @@
             this.New.TabIndex = 19;
             this.New.UseVisualStyleBackColor = true;
             this.New.Click += new System.EventHandler(this.New_Click);
+            this.New.MouseEnter += new System.EventHandler(this.New_MouseEnter);
             // 
             // button1
             // 
@@ -691,6 +733,7 @@
             this.button1.TabIndex = 20;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             // 
             // button2
             // 
@@ -703,6 +746,7 @@
             this.button2.TabIndex = 21;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
             // 
             // button3
             // 
@@ -715,6 +759,7 @@
             this.button3.TabIndex = 22;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
             // 
             // button5
             // 
@@ -727,6 +772,7 @@
             this.button5.TabIndex = 24;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
             // 
             // button6
             // 
@@ -739,14 +785,7 @@
             this.button6.TabIndex = 25;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // t_TEST_PERSONTableAdapter
-            // 
-            this.t_TEST_PERSONTableAdapter.ClearBeforeFill = true;
-            // 
-            // t_TESTPER_ITEMSTableAdapter
-            // 
-            this.t_TESTPER_ITEMSTableAdapter.ClearBeforeFill = true;
+            this.button6.MouseEnter += new System.EventHandler(this.button6_MouseEnter);
             // 
             // OpenFile
             // 
@@ -768,6 +807,15 @@
             this.button7.TabIndex = 26;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.MouseEnter += new System.EventHandler(this.button7_MouseEnter);
+            // 
+            // t_TEST_PERSONTableAdapter
+            // 
+            this.t_TEST_PERSONTableAdapter.ClearBeforeFill = true;
+            // 
+            // t_TESTPER_ITEMSTableAdapter
+            // 
+            this.t_TESTPER_ITEMSTableAdapter.ClearBeforeFill = true;
             // 
             // Main_Open
             // 
@@ -775,7 +823,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(899, 569);
+            this.ClientSize = new System.Drawing.Size(817, 569);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -790,7 +838,6 @@
             this.MinimizeBox = false;
             this.Name = "Main_Open";
             this.Text = "Main_Open";
-            this.Load += new System.EventHandler(this.Main_Open_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -871,18 +918,18 @@
         private MTP1DataSetTableAdapters.T_TESTPER_ITEMSTableAdapter t_TESTPER_ITEMSTableAdapter;
         private System.Windows.Forms.OpenFileDialog OpenFile;
         private System.Windows.Forms.PrintDialog print1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rESULTSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEXDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn lISTNAMEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BASETEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn bASETESTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rESULTSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button7;
     }
 }

@@ -15,11 +15,12 @@ namespace MTPsys.Model
         private object company_id;
         private object company_name;
         private object list_name;
+        private int list_id;
         private int subject_id;
         private object subject_name;
         private object score;
 
-        public PersonItems(string test_id, object person_id, object person_name, object sex, object company_name, object list_name, int subject_id, object subject_name, object score)
+        public PersonItems(string test_id, object person_id, object person_name, object sex, object company_name, object list_name, int subject_id, object subject_name, object score, int list_id)
         {
             this.Test_id = test_id;
             this.Person_id = person_id;
@@ -31,6 +32,7 @@ namespace MTPsys.Model
             this.Subject_id = subject_id;
             this.Subject_name = subject_name;
             this.Score = score;
+            this.list_id = list_id;
         }
 
         public string Test_id { get => test_id; set => test_id = value; }
@@ -43,5 +45,6 @@ namespace MTPsys.Model
         public int Subject_id { get => subject_id; set => subject_id = value; }
         public object Subject_name { get => subject_name; set => subject_name = value; }
         public object Score { get => score; set => score = value; }
+        public int List_id { get => list_id; set => list_id = value; }
     }
 }

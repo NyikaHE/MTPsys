@@ -13,88 +13,87 @@ namespace MTPsys.View
 {
     public partial class OpenEdit : Form
     {
-        private OleDbDataAdapter adapter;
-        private DataSet ds;
-        private string testid;
-        public OpenEdit(string testid)
+        private string testid,listname,companyname;
+        private int listid;
+        public OpenEdit(string testid,int listid,string companyname)
         {
             this.testid = testid;
+            this.listid = listid;
+            if (listid == 1)
+            {
+                listname = "入伍体能考核";
+            }
+            else if (listid == 2)
+            {
+                listname = "通用体能考核";
+            }
+            this.companyname = companyname;
             InitializeComponent();
-
-            
-
-        }
-
-        private void OpenEdit_Load(object sender, EventArgs e)
-        {
-
-            // TODO: 这行代码将数据加载到表“mTP1DataSet1.T_TEST_ITEMS”中。您可以根据需要移动或删除它。
-            this.t_TEST_ITEMSTableAdapter1.Fill(this.mTP1DataSet11.T_TEST_ITEMS);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Person p = new Person();
-            p.Company = (string)companyname.Text;
-            p.Name = (string)Name.Text;
+            //try
+            //{
+                p.Name = (string)Name.Text;
             p.Id = (string)ID.Text;
             p.Gender = sex.Text;
             p.Age = Convert.ToInt32(age.Text);
-            p.Height = StrToFloat(height.Text);
-            p.Weight = StrToFloat(weight.Text);
-            p.Testype = testtype.Text;
+            p.Height = height.Text;
+            p.Weight = weight.Text;
+            p.Company = companyname;
+            p.Testype = listname;
+            p.Listid = listid;
             DataBase db = new DataBase();
             db.InsertPerson(p, testid);
             OleDbConnection conn1 = Connect.getConnection();
             conn1.Open();
-            // Object score = (Object)dataGridView1.Rows[0].Cells[1];
-           
             
-            PersonItems pi1 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 1, "体型", "");
-            db.WritePersonScore(pi1, conn1);
-            if (dataGridView1.Rows[0].Cells[1] != null)
-            {
-                PersonItems pi2 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 2, "俯卧撑", Convert.ToInt32(dataGridView1.Rows[0].Cells[1].Value));
-                db.WritePersonScore(pi2, conn1);
-                //MessageBox.Show(a.ToString());
-            }
-            if (dataGridView1.Rows[1].Cells[1].Value != null)
-            {
-                PersonItems pi3 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 3, "仰卧起坐", (Object)dataGridView1.Rows[1].Cells[1].Value);
-                db.WritePersonScore(pi3, conn1);
-            }
-            if (dataGridView1.Rows[2].Cells[1].Value != null)
-            {
-                PersonItems pi4 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 4, "10*5米跑", (Object)dataGridView1.Rows[2].Cells[1].Value);
-                db.WritePersonScore(pi4, conn1);
-            }
-            if (dataGridView1.Rows[3].Cells[1].Value != null)
-            {
-                PersonItems pi5 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 5, "3000米", (Object)dataGridView1.Rows[3].Cells[1].Value);
-                db.WritePersonScore(pi5, conn1);
-            }
-            if (dataGridView1.Rows[4].Cells[1].Value != null)
-            {
-                PersonItems pi6 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 6, "引体向上", (Object)dataGridView1.Rows[4].Cells[1].Value);
-                db.WritePersonScore(pi6, conn1);
-            }
-            if (dataGridView1.Rows[5].Cells[1].Value != null)
-            {
-                PersonItems pi7 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 7, "单杠屈臂悬垂", (Object)dataGridView1.Rows[5].Cells[1]);
-                db.WritePersonScore(pi7, conn1);
-            }
-            if (dataGridView1.Rows[6].Cells[1].Value != null)
-            {
-                PersonItems pi8 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 8, "双杠臂屈伸", (Object)dataGridView1.Rows[6].Cells[1]);
-                db.WritePersonScore(pi8, conn1);
-            }
-            /*
-            string sqll = "update T_TEST_PERSON set LIST_ID=2,LIST_NAME='入伍考核类型' where PERSON_ID=@1";
-                OleDbCommand cmds = new OleDbCommand(sqll, conn1);
-                cmds.Parameters.AddWithValue("@1", p.Id);
-                cmds.ExecuteNonQuery();
-            */
-            this.Close();
+                PersonItems pi1 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 1, "体型", "", listid);
+                db.WritePersonScore(pi1, conn1);
+                if (f.Text != "")
+                {
+                    PersonItems pi2 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 2, "俯卧撑", Convert.ToInt32(f.Text), listid);
+                    db.WritePersonScore(pi2, conn1);
+                    //MessageBox.Show(a.ToString());
+                }
+                if (y.Text != "")
+                {
+                    PersonItems pi3 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 3, "仰卧起坐", Convert.ToInt32(y.Text), listid);
+                    db.WritePersonScore(pi3, conn1);
+                }
+                if (s.Text != "")
+                {
+                    PersonItems pi4 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 4, "往返跑", Convert.ToString(s.Text), listid);
+                    db.WritePersonScore(pi4, conn1);
+                }
+                if (sq.Text != "")
+                {
+                    PersonItems pi5 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 5, "3000米", Convert.ToString(sq.Text), listid);
+                    db.WritePersonScore(pi5, conn1);
+                }
+                if (yt.Text != "")
+                {
+                    PersonItems pi6 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 6, "引体向上", Convert.ToInt32(yt.Text), listid);
+                    db.WritePersonScore(pi6, conn1);
+                }
+                if (dg.Text != "")
+                {
+                    PersonItems pi7 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 7, "单杠屈臂悬垂", Convert.ToString(dg.Text), listid);
+                    db.WritePersonScore(pi7, conn1);
+                }
+                if (sg.Text != "")
+                {
+                    PersonItems pi8 = new PersonItems(testid, p.Id, p.Name, p.Gender, p.Company, p.Testype, 8, "双杠臂屈伸", Convert.ToInt32(sg.Text), listid);
+                    db.WritePersonScore(pi8, conn1);
+                }
+
+                this.Close();
+            //}
+            //catch {
+            //    MessageBox.Show("插入信息有误，请重新插入！！！");
+            //}
 
         }
         public float StrToFloat(object FloatString)

@@ -53,7 +53,7 @@ namespace MTPsys
         {
             for(int i=0;i<dataGridView1.RowCount;i++)
             {
-             if(dataGridView1.Rows[i].Selected==true)
+             if(dataGridView1.Rows[i].Selected==true&& dataGridView1.Rows[i].Cells[0].Value.ToString()!="1")
                 {
                     dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
                     dataSet.Tables["T_USER"].Rows[i].Delete();
