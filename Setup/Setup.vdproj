@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_2A9A974C705245318242B44DB22784B3"
+        "MsmKey" = "8:_4F77608D88A14F50998CB04316F36A88"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_52428219373D4296942A5DB1AC6A7CA8"
+        "MsmKey" = "8:_65212B8795BA4979AE80DBEF6263CD18"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,19 +33,13 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8C70065161F94416853DD7F3FE4AFF8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9E3514C3D5644AA6B71F66BE5E224D7D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AAE4AA3F0A4941908A0523FEF8C1199D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_ABA466E2E77B40FC9BD4B77A8DC173E8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -64,7 +58,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2A9A974C705245318242B44DB22784B3"
+        "OwnerKey" = "8:_8C70065161F94416853DD7F3FE4AFF8C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -162,21 +156,10 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2A9A974C705245318242B44DB22784B3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F77608D88A14F50998CB04316F36A88"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MTPsys, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_2A9A974C705245318242B44DB22784B3"
-                    {
-                    "Name" = "8:MTPsys.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\MTPsys\\bin\\Debug\\MTPsys.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\MTPsys\\bin\\Debug\\MTPsys.exe.config"
+            "TargetName" = "8:MTPsys.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_A11FC1777CD848B7BACEB1CC2D62C0D0"
             "Condition" = "8:"
@@ -193,7 +176,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_52428219373D4296942A5DB1AC6A7CA8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65212B8795BA4979AE80DBEF6263CD18"
             {
             "SourcePath" = "8:..\\MTPsys\\bin\\Debug\\MTP1.mdb"
             "TargetName" = "8:MTP1.mdb"
@@ -233,30 +216,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AAE4AA3F0A4941908A0523FEF8C1199D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8C70065161F94416853DD7F3FE4AFF8C"
             {
-            "SourcePath" = "8:..\\MTPsys\\bin\\Debug\\MTPsys.exe.config"
-            "TargetName" = "8:MTPsys.exe.config"
-            "Tag" = "8:"
-            "Folder" = "8:_A11FC1777CD848B7BACEB1CC2D62C0D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ABA466E2E77B40FC9BD4B77A8DC173E8"
-            {
-            "SourcePath" = "8:..\\pic\\bg.png"
-            "TargetName" = "8:bg.png"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MTPsys, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_8C70065161F94416853DD7F3FE4AFF8C"
+                    {
+                    "Name" = "8:MTPsys.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MTPsys\\bin\\Debug\\MTPsys.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A11FC1777CD848B7BACEB1CC2D62C0D0"
             "Condition" = "8:"
@@ -350,7 +324,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ATTN_Setup"
         "ProductCode" = "8:{E9F6BC2A-C8A8-4565-8EBA-6CEAC9D3BBF1}"
-        "PackageCode" = "8:{12090BEE-E856-46EE-9033-190676B06C2D}"
+        "PackageCode" = "8:{7C13D9A6-85DF-488C-BEC0-91F3AB5C1F83}"
         "UpgradeCode" = "8:{82CE5907-FDB3-4F0E-A892-CDDCFAF7BDA2}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

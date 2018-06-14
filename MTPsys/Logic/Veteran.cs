@@ -54,7 +54,7 @@ namespace MTPsys.Logic
                 {
                     Process3(subjectid, score);
                 }
-                else
+                else if(subjectid == 1)
                 {
                     Process4(subjectid, score, autoid);
                 }

@@ -237,7 +237,6 @@ namespace MTPsys.Logic
             if (ss >= 18)
             {
                 result = "优秀";
-                
             }
             else if ( ss >= 12)
             {
@@ -251,8 +250,9 @@ namespace MTPsys.Logic
             {
                 result = "不及格";
             }
-            
+            //Console.WriteLine(result);
             return result;
+            
         }
         //3000米
         private string Process6(int subjectid, object score, string gender)

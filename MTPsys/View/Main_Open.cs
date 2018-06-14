@@ -191,37 +191,37 @@ namespace MTPsys
                     cmd.ExecuteNonQuery();
                     PersonItems pi1 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 1, "体型", reader[8], listid);
                     db.WritePersonScore(pi1, conn1);
-                    if (!"".Equals(reader[9]))
+                    if (!"".Equals(reader[9].ToString()))
                     {
                         PersonItems pi2 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 2, "俯卧撑", reader[9], listid);
                         db.WritePersonScore(pi2, conn1);
                     }
-                    if (!"".Equals(reader[10]))
+                    if (!"".Equals(reader[10].ToString()))
                     {
                         PersonItems pi3 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 3, "仰卧起坐", reader[10], listid);
                         db.WritePersonScore(pi3, conn1);
                     }
-                    if (!"".Equals(reader[11]))
+                    if (!"".Equals(reader[11].ToString()))
                     {
                         PersonItems pi4 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 4, "往返跑", reader[11], listid);
                         db.WritePersonScore(pi4, conn1);
                     }
-                    if (!"".Equals(reader[12]))
+                    if (!"".Equals(reader[12].ToString()))
                     {
                         PersonItems pi5 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 5, "3000米", reader[12], listid);
                         db.WritePersonScore(pi5, conn1);
                     }
-                    if (!"".Equals(reader[13]))
+                    if (!"".Equals(reader[13].ToString()))
                     {
                         PersonItems pi6 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 6, "引体向上", reader[13], listid);
                         db.WritePersonScore(pi6, conn1);
                     }
-                    if (!"".Equals(reader[14]))
+                    if (!"".Equals(reader[14].ToString()))
                     {
                         PersonItems pi7 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 7, "单杠屈臂悬垂", reader[14], listid);
                         db.WritePersonScore(pi7, conn1);
                     }
-                    if (!"".Equals(reader[15]))
+                    if (!"".Equals(reader[15].ToString()))
                     {
                         PersonItems pi8 = new PersonItems(test, reader[0], reader[1], reader[2], reader[4], listname, 8, "双杠臂屈伸", reader[15], listid);
                         db.WritePersonScore(pi8, conn1);

@@ -192,11 +192,11 @@ namespace MTPsys
         //写入新兵成绩
         public void WriteBigjohn(int Person_ID,string testid, int Subject, string state, OleDbConnection conn) {
             
-            string sql = "update T_TESTPER_ITEMS set ISPASS=@3 where PERSON_ID=@1 and SUBJECT_ID=@2 and TEST_ID=@4";
+            string sql = "update T_TESTPER_ITEMS set ISPASS=@1 where PERSON_ID=@2 and SUBJECT_ID=@3 and TEST_ID=@4";
             OleDbCommand cmd = new OleDbCommand(sql, conn);  //sql语句 
-            cmd.Parameters.AddWithValue("@1", Person_ID);
-            cmd.Parameters.AddWithValue("@2", Subject);
-            cmd.Parameters.AddWithValue("@3", state);
+            cmd.Parameters.AddWithValue("@1", state);
+            cmd.Parameters.AddWithValue("@2", Person_ID);
+            cmd.Parameters.AddWithValue("@3", Subject);
             cmd.Parameters.AddWithValue("@4", testid);
             cmd.ExecuteNonQuery();
         }
@@ -215,9 +215,15 @@ namespace MTPsys
             {
                 state = "及格";
             }
-       
-            string sql = "update T_TESTPER_ITEMS set RESULTS=" + result+",ISPASS='"+state+"' where PERSON_ID=" + Person_ID + " and SUBJECT_ID="+Subject;
-            OleDbCommand cmd = new OleDbCommand(sql, conn);  //sql语句 
+
+            //string sql = "update T_TESTPER_ITEMS set RESULTS=" + result+",ISPASS='"+state+"' where PERSON_ID=" + Person_ID + " and SUBJECT_ID="+Subject;
+            string sql = "update T_TESTPER_ITEMS set RESULTS=@1,ISPASS=@2 where PERSON_ID=@3 and SUBJECT_ID=@4 and TEST_ID=@5";
+            OleDbCommand cmd = new OleDbCommand(sql, conn);  //sql语句
+            cmd.Parameters.AddWithValue("@1", result);
+            cmd.Parameters.AddWithValue("@2", state);
+            cmd.Parameters.AddWithValue("@3", Person_ID);
+            cmd.Parameters.AddWithValue("@4", Subject);
+            cmd.Parameters.AddWithValue("@5", testid);
             cmd.ExecuteNonQuery();
         }
 
